@@ -77,9 +77,9 @@ const BACKGROUND_FADE_START = Math.max(
 );
 
 const TYPED_LINES = [
-  "> tina",
+  "> hi my love!",
   "...",
-  "> today is your birthday",
+  "> happy christmas/anniversary!!",
   "...",
   "> so i made you this computer program",
   "...",
@@ -99,9 +99,9 @@ type BirthdayCardConfig = {
 const BIRTHDAY_CARDS: ReadonlyArray<BirthdayCardConfig> = [
   {
     id: "confetti",
-    image: "/card.png",
+    image: "/ebear_card2.png",
     position: [1, 0.081, -2],
-    rotation: [-Math.PI / 2 , 0, Math.PI / 3],
+    rotation: [-Math.PI / 2, 0, Math.PI / 3],
   }
 ];
 
@@ -266,25 +266,25 @@ function AnimatedScene({
       <group ref={tableGroup}>
         <Table />
         <PictureFrame
-          image="/frame2.jpg"
+          image="/ebear_medeival.jpg"
           position={[0, 0.735, 3]}
           rotation={[0, 5.6, 0]}
           scale={0.75}
         />
         <PictureFrame
-          image="/frame3.jpg"
+          image="/ebear_promm.PNG"
           position={[0, 0.735, -3]}
           rotation={[0, 4.0, 0]}
           scale={0.75}
         />
         <PictureFrame
-          image="/frame4.jpg"
+          image="/ebear_mouse.PNG"
           position={[-1.5, 0.735, 2.5]}
           rotation={[0, 5.4, 0]}
           scale={0.75}
         />
         <PictureFrame
-          image="/frame1.jpg"
+          image="/ebear_gnome.jpg"
           position={[-1.5, 0.735, -2.5]}
           rotation={[0, 4.2, 0]}
           scale={0.75}
@@ -381,7 +381,7 @@ export default function App() {
   const backgroundAudioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio("/music.mp3");
+    const audio = new Audio("/music_ebear.mp3");
     audio.loop = true;
     audio.preload = "auto";
     backgroundAudioRef.current = audio;
@@ -560,16 +560,17 @@ export default function App() {
             onToggleCard={handleCardToggle}
           />
           <ambientLight intensity={(1 - environmentProgress) * 0.8} />
-          <directionalLight intensity={0.5} position={[2, 10, 0]} color={[1, 0.9, 0.95]}/>
+          <directionalLight intensity={0.5} position={[2, 10, 0]} color={[1, 0.9, 0.95]} />
           <Environment
-            files={["/shanghai_bund_4k.hdr"]}
-            backgroundRotation={[0, 3.3, 0]}
-            environmentRotation={[0, 3.3, 0]}
+            //files={["/shanghai_bund_4k.hdr"]}
+            files={["/christmas_photo_studio_05_4k.hdr"]}
+            backgroundRotation={[0, 4.6, 0]}
+            environmentRotation={[0, 4.6, 0]}
             background
             environmentIntensity={0.1 * environmentProgress}
-            backgroundIntensity={0.05 * environmentProgress}
+            backgroundIntensity={0.15 * environmentProgress}
           />
-          <EnvironmentBackgroundController intensity={0.05 * environmentProgress} />
+          <EnvironmentBackgroundController intensity={0.15 * environmentProgress} />
           <Fireworks isActive={fireworksActive} origin={[0, 10, 0]} />
           <ConfiguredOrbitControls />
         </Suspense>

@@ -79,6 +79,9 @@ export function PictureFrame({
     () =>
       new MeshStandardMaterial({
         map: pictureTexture,
+        emissiveMap: pictureTexture,
+        emissive: 0xffffff,
+        emissiveIntensity: 0.3,
         roughness: 0.08,
         metalness: 0,
         side: DoubleSide,
@@ -95,11 +98,11 @@ export function PictureFrame({
   return (
     <group {...groupProps}>
       <group rotation={[0.04, 0, 0]}>
-      <primitive object={frameScene} />
-      <mesh position={imagePosition} rotation={[0.435, Math.PI, 0]} material={pictureMaterial}>
-        <planeGeometry args={[imageWidth, imageHeight]} />
-      </mesh>
-      {children}
+        <primitive object={frameScene} />
+        <mesh position={imagePosition} rotation={[0.435, Math.PI, 0]} material={pictureMaterial}>
+          <planeGeometry args={[imageWidth, imageHeight]} />
+        </mesh>
+        {children}
       </group>
     </group>
   );
